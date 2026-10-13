@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}{{ company.name }} - FounderScout{% endblock %}
+{% block content %}
+<p><a href="/?tab={{ draft.status }}">&larr; back to {{ draft.status }}</a></p>
+<h1>{{ company.name }}
+  <span class="badge {{ draft.verdict }}">review: {{ draft.verdict }}</span>
+  <span class="badge">{{ draft.status }}</span>
+</h1>
+<p class="meta">
+  <a href="{{ company.website }}" rel="noopener noreferrer" target="_blank">{{ company.website }}</a>
+  &middot; fit {{ company.fit_score }}: {{ company.fit_reason }}
+  &middot; remote: {{ company.remote_policy }}
+  {% if company.contact %}&middot; contact given in post: {{ company.contact }}{% endif %}
+</p>
+
+<div class="columns">
+  <section>
+    <h2>Message</h2>
+    {% if draft.status == "pending" and user == "admin" %}
+    <form method="post" action="/drafts/{{ draft.id }}/approve">
+      <label>Subject <input name="subject" value="{{ draft.subject }}"></label>
+      <label>Body <textarea name="body" rows="16">{{ draft.body }}</textarea></label>
+      <button class="primary">Approve (with my edits)</button>
+    </form>
+    <form method="post" action="/drafts/{{ draft.id }}/reject" class="reject">
+      <input name="reason" placeholder="Why? One line helps the writer learn.">
+      <button>Reject</button>
+    </form>
+    {% else %}
+    <p><strong>{{ draft.subject }}</strong></p>
+    <pre id="message">{{ draft.final_body or draft.body }}</pre>
+    <button onclick="navigator.clipboard.writeText(document.getElementById('message').innerText)">Copy message</button>
+    {% if draft.status == "approved" and user == "admin" %}
+    <form method="post" action="/drafts/{{ draft.id }}/sent" class="inline">
+      <button class="primary">I sent it</button>
+    </form>
+    {% endif %}
+    {% if draft.reject_reason %}<p class="meta">Rejected because: {{ draft.reject_reason }}</p>{% endif %}
+    {% endif %}
+
+    <h2>Reviewer</h2>
+    <p class="meta">checked by {{ review.checked_by }} &middot; revisions: {{ draft.revisions }}</p>
+    {% for claim in review.unsupported_claims %}<p class="flag">Unsupported: {{ claim }}</p>{% endfor %}
+    {% for issue in review.issues %}<p class="flag">Issue: {{ issue }}</p>{% endfor %}
+    {% if not review.unsupported_claims and not review.issues %}<p>No problems found.</p>{% endif %}
+  </section>
+
+  <section>
+    <h2>Research brief</h2>
+    <p>{{ brief.what_they_build }}</p>
+    <p class="meta">Angle: {{ brief.angle }}</p>
+    {% if brief.founders %}<p class="meta">Founders found on site: {{ brief.founders|join(", ") }}</p>{% endif %}
+    <h3>Verified facts ({{ brief.facts_kept }} of {{ brief.facts_proposed }} proposed)</h3>
+    {% for fact in brief.facts %}
+    <div class="fact">
+      <div>{{ fact.claim }}</div>
+      <blockquote>"{{ fact.quote }}"</blockquote>
+      <a href="{{ fact.source_url }}" rel="noopener noreferrer" target="_blank">{{ fact.source_url }}</a>
+    </div>
+    {% endfor %}
+
+    <h2>Trace</h2>
+    <table>
+      <tr><th>Step</th><th>Model</th><th>Tokens</th><th>ms</th><th>Note</th></tr>
+      {% for step in steps %}
+      <tr class="{{ '' if step.ok else 'failed' }}">
+        <td>{{ step.agent }}</td><td>{{ step.model }}</td>
+        <td>{{ step.tokens_in + step.tokens_out }}</td><td>{{ step.ms }}</td>
+        <td>{{ step.note|truncate(70) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
+</div>
+{% endblock %}

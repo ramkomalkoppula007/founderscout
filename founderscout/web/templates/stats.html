@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Stats - FounderScout{% endblock %}
+{% block content %}
+<h1>How the system is doing</h1>
+<table class="narrow">
+  {% for name, value in metrics.items() %}
+  <tr><th>{{ name }}</th><td>{{ value }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>Lessons learned from my edits</h2>
+{% for lesson in lessons %}<p class="fact">{{ lesson.text }}</p>{% endfor %}
+{% if not lessons %}<p class="empty">None yet. Edit or reject a draft and run again.</p>{% endif %}
+
+<h2>Recently skipped or failed</h2>
+<table>
+  <tr><th>Company</th><th>Status</th><th>Why</th></tr>
+  {% for company in skipped %}
+  <tr><td>{{ company.name }}</td><td>{{ company.status }}</td><td>{{ company.note|truncate(110) }}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Inbox - FounderScout{% endblock %}
+{% block content %}
+<div class="tabs">
+  {% for name in tabs %}
+  <a href="/?tab={{ name }}" class="{{ 'active' if name == tab else '' }}">
+    {{ name|capitalize }} <span class="count">{{ counts[name] }}</span>
+  </a>
+  {% endfor %}
+</div>
+
+{% if not drafts %}
+<p class="empty">Nothing here. Drafts appear after the next run.</p>
+{% endif %}
+
+{% for draft in drafts %}
+<a class="card" href="/drafts/{{ draft.id }}">
+  <div class="card-top">
+    <strong>{{ draft.company.name }}</strong>
+    <span class="badge {{ draft.verdict }}">review: {{ draft.verdict }}</span>
+    <span class="badge">fit {{ draft.company.fit_score }}</span>
+    {% if draft.edited %}<span class="badge">edited</span>{% endif %}
+  </div>
+  <div class="subject">{{ draft.subject }}</div>
+  <div class="preview">{{ (draft.final_body or draft.body)|truncate(180) }}</div>
+</a>
+{% endfor %}
+{% endblock %}

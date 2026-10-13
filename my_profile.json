@@ -1,0 +1,38 @@
+{
+  "name": "Ram Komal Koppula",
+  "headline": "AI engineer building LLM agents, RAG systems and evals; MS Data Science at Illinois Tech",
+  "location": "India (UTC+5:30), available for 4 hours of US morning overlap",
+  "looking_for": "A remote AI engineer role, contract or full-time, focused on agents",
+  "ask": "Would you be open to giving me a small real task from your backlog? I will build a working version in a few days, and you can judge me on that.",
+  "links": {
+    "github": "https://github.com/YOUR_USERNAME",
+    "linkedin": "https://www.linkedin.com/in/YOUR_LINKEDIN"
+  },
+  "projects": [
+    {
+      "name": "FounderScout",
+      "one_line": "A multi-agent system that finds startups, researches them in a real browser, drafts outreach and has a second model fact-check every draft before a human approves it.",
+      "url": "https://github.com/YOUR_USERNAME/founderscout",
+      "skills": ["LangGraph", "Playwright", "evals", "human-in-the-loop"]
+    },
+    {
+      "name": "shopkart-support-agent",
+      "one_line": "A LangGraph multi-agent customer support system with tools, guardrails and escalation to a human.",
+      "url": "https://github.com/YOUR_USERNAME/shopkart-support-agent",
+      "skills": ["LangGraph", "tool calling", "guardrails"]
+    },
+    {
+      "name": "annual-report-rag",
+      "one_line": "A RAG system that answers questions over Indian company annual reports with citations, hybrid search and a RAGAS evaluation.",
+      "url": "https://github.com/YOUR_USERNAME/annual-report-rag",
+      "skills": ["RAG", "pgvector", "hybrid search", "RAGAS"]
+    },
+    {
+      "name": "finetune-vs-prompt",
+      "one_line": "A benchmark comparing LoRA fine-tuning with prompting for support-ticket classification.",
+      "url": "https://github.com/YOUR_USERNAME/finetune-vs-prompt",
+      "skills": ["PEFT", "LoRA", "evaluation"]
+    }
+  ],
+  "signature": "Ram Komal Koppula\nGitHub: https://github.com/YOUR_USERNAME"
+}

@@ -1,0 +1,35 @@
+{
+  "story_id": 1000,
+  "hits": [
+    {
+      "objectID": "1001",
+      "parent_id": 1000,
+      "author": "asha_bl",
+      "comment_text": "Brindle Loop | AI Engineer (agents) | REMOTE (worldwide) | Contract or full-time | <a href=\"http:&#x2F;&#x2F;127.0.0.1:8765&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;127.0.0.1:8765&#x2F;</a><p>We build AI support agents for regional banks. Looking for engineers who have shipped LLM agents with evals. Work from anywhere.<p>Email: jobs@brindleloop.example"
+    },
+    {
+      "objectID": "1002",
+      "parent_id": 1000,
+      "author": "harbor_hr",
+      "comment_text": "Harbor Freightline | Senior Java Developer | ONSITE Rotterdam | Full-time<p>Logistics software for ports. No remote. <a href=\"https:&#x2F;&#x2F;harborfreightline.example\" rel=\"nofollow\">https:&#x2F;&#x2F;harborfreightline.example</a>"
+    },
+    {
+      "objectID": "1003",
+      "parent_id": 1000,
+      "author": "quillmesh",
+      "comment_text": "Quillmesh | ML Engineer | Remote (US only) | Full-time | <a href=\"https:&#x2F;&#x2F;quillmesh.example\" rel=\"nofollow\">https:&#x2F;&#x2F;quillmesh.example</a><p>We&#x27;re building LLM agents for contract review. Remote within the United States."
+    },
+    {
+      "objectID": "1004",
+      "parent_id": 1001,
+      "author": "someone",
+      "comment_text": "Is this remote role open to AI engineers in Europe?"
+    },
+    {
+      "objectID": "1005",
+      "parent_id": 1000,
+      "author": "tidewater",
+      "comment_text": "Tidewater Labs | Frontend Engineer | Remote | <a href=\"https:&#x2F;&#x2F;tidewaterlabs.example\" rel=\"nofollow\">https:&#x2F;&#x2F;tidewaterlabs.example</a><p>We make dashboards for marine research teams."
+    }
+  ]
+}

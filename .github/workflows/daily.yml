@@ -1,0 +1,45 @@
+name: Daily run
+
+on:
+  schedule:
+    - cron: "30 1 * * *"     # 01:30 UTC = 07:00 in India, every day
+  workflow_dispatch:          # adds a "Run workflow" button for manual runs
+    inputs:
+      max:
+        description: "How many companies to research"
+        default: "5"
+
+permissions:
+  contents: read                # the job only needs to read the code
+
+concurrency:
+  group: daily-run              # never let two runs write at the same time
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Install the Chromium browser
+        run: python -m playwright install --with-deps chromium
+
+      - name: Find, research and draft
+        run: python -m founderscout.run --max "$MAX"
+        env:
+          MAX: ${{ inputs.max || '5' }}
+          LLM_MODE: real
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          BOT_CONTACT: https://github.com/${{ github.repository }}

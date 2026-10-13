@@ -1,0 +1,38 @@
+[
+  {
+    "company": "Brindle Loop",
+    "domain": "brindleloop.example",
+    "founders": ["Asha Verma"],
+    "facts": [
+      {"claim": "Brindle Loop builds AI support agents for regional banks.",
+       "quote": "Brindle Loop builds AI support agents that answer customer questions for regional banks."},
+      {"claim": "Their agents use LangGraph with a human approval step.",
+       "quote": "Our agents run on LangGraph with a human approval step for refunds and account changes."}
+    ],
+    "opening": "Brindle Loop puts a human approval step in front of refunds and account changes, on top of LangGraph agents that answer bank customers."
+  },
+  {
+    "company": "Quillmesh",
+    "domain": "quillmesh.example",
+    "founders": [],
+    "facts": [
+      {"claim": "Quillmesh builds LLM agents that review contracts.",
+       "quote": "We are building LLM agents for contract review."},
+      {"claim": "Each flagged clause links back to the page of the contract it came from.",
+       "quote": "Every flagged clause links back to the exact page of the source contract."}
+    ],
+    "opening": "Quillmesh links every flagged clause back to the exact page of the contract, which is the part of contract review agents that is hardest to get right."
+  },
+  {
+    "company": "Tallow Works",
+    "domain": "tallowworks.example",
+    "founders": ["Mirek Dana", "Oluchi Park"],
+    "facts": [
+      {"claim": "Tallow Works makes a voice agent that books appointments for dental clinics.",
+       "quote": "Tallow is a voice agent that books, moves and cancels appointments for dental clinics."},
+      {"claim": "They run a nightly evaluation on recorded test calls.",
+       "quote": "Every night we replay two hundred recorded test calls and score the agent on each one."}
+    ],
+    "opening": "Tallow Works replays two hundred recorded test calls every night to score its booking agent for dental clinics."
+  }
+]

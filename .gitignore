@@ -1,0 +1,11 @@
+# secrets: never commit these
+.env
+
+# local database and virtual environment
+*.db
+.venv/
+
+# Python and test leftovers
+__pycache__/
+*.pyc
+.pytest_cache/
