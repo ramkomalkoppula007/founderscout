@@ -9,7 +9,7 @@ Nothing leaves the inbox until I approve it.
 
 ## 🔗 Live demo
 
-**[Open FounderScout](https://founderscout-xxxx.onrender.com)**
+**[Open FounderScout](https://founderscout.onrender.com)**
 Read-only login available on request.
 
 **Live inbox (read-only login):** ADD_YOUR_RENDER_URL · user `viewer`, password `ADD_VIEWER_PASSWORD`
