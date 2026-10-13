@@ -7,6 +7,11 @@ roles, reads each company's website in a real browser, writes a short message to
 the founders, has a second model fact-check that message, and puts it in an inbox.
 Nothing leaves the inbox until I approve it.
 
+## 🔗 Live demo
+
+**[Open FounderScout](https://founderscout-xxxx.onrender.com)**
+Read-only login available on request.
+
 **Live inbox (read-only login):** ADD_YOUR_RENDER_URL · user `viewer`, password `ADD_VIEWER_PASSWORD`
 The server is on a free plan and sleeps when idle, so the first load takes about a minute.
 
