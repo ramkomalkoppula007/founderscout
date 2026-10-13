@@ -1,11 +1,16 @@
-# secrets: never commit these
+# Secrets
 .env
+.env.*
 
-# local database and virtual environment
+# Keep the example template
+!.env.example
+
+# Local database and virtual environment
 *.db
+venv/
 .venv/
 
-# Python and test leftovers
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
 .pytest_cache/
